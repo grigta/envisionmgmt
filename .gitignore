@@ -27,3 +27,6 @@ npm-debug.log*
 # Cache
 .cache/
 .turbo/
+
+# Documentation
+*.md
