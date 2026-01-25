@@ -17,6 +17,7 @@ from services.core.api.v1.branding import router as branding_router
 from services.core.api.v1.billing import router as billing_router
 from services.core.api.v1.integrations import router as integrations_router
 from services.core.api.v1.webhooks import router as webhooks_router
+from services.core.api.v1.attachments import router as attachments_router
 
 router = APIRouter()
 
@@ -36,3 +37,4 @@ router.include_router(branding_router, prefix="/branding", tags=["Брендин
 router.include_router(billing_router, prefix="/billing", tags=["Биллинг"])
 router.include_router(integrations_router, prefix="/integrations", tags=["Интеграции"])
 router.include_router(webhooks_router, prefix="/webhooks", tags=["Вебхуки"])
+router.include_router(attachments_router, prefix="/attachments", tags=["Вложения"])
