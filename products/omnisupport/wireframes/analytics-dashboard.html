@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Аналитика — OmniSupport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .annotation {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        .chart-placeholder {
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold mb-2">Wireframe: Дашборд аналитики</h1>
+        <p class="text-gray-500 mb-8">OmniSupport — Метрики и отчёты</p>
+
+        <!-- Main Layout -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden" style="min-height: 800px;">
+            <div class="flex">
+
+                <!-- Sidebar -->
+                <div class="w-56 bg-gray-900 text-white flex flex-col min-h-screen">
+                    <div class="p-4 border-b border-gray-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-blue-500 rounded"></div>
+                            <span class="font-semibold">OmniSupport</span>
+                        </div>
+                    </div>
+
+                    <nav class="flex-1 p-2 space-y-1">
+                        <div class="text-xs text-gray-500 px-3 py-2">АНАЛИТИКА</div>
+
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 bg-gray-800 rounded text-sm">
+                            <span class="w-5 h-5 bg-blue-500 rounded"></span>
+                            <span>Обзор</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Диалоги</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Операторы</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Каналы</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>ИИ-эффективность</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Отчёты</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Main Content -->
+                <div class="flex-1 p-6">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h2 class="text-xl font-semibold">Обзор</h2>
+                            <p class="text-sm text-gray-500">Ключевые метрики за выбранный период</p>
+                        </div>
+                        <div class="flex items-center gap-3 relative">
+                            <div class="annotation -top-6 right-0">Фильтры периода</div>
+                            <select class="px-3 py-2 border rounded-lg text-sm">
+                                <option>Последние 7 дней</option>
+                                <option>Последние 30 дней</option>
+                                <option>Этот месяц</option>
+                                <option>Прошлый месяц</option>
+                            </select>
+                            <button class="px-4 py-2 border rounded-lg text-sm hover:bg-gray-50">
+                                Экспорт
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- KPI Cards -->
+                    <div class="grid grid-cols-4 gap-4 mb-6 relative">
+                        <div class="annotation -top-6 left-0">Ключевые показатели</div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-500">Всего диалогов</span>
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-blue-500 text-sm">D</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-bold">1,284</div>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="text-green-500 text-sm">+12%</span>
+                                <span class="text-xs text-gray-400">vs прошлый период</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-500">Среднее время ответа</span>
+                                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-green-500 text-sm">T</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-bold">2.4 мин</div>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="text-green-500 text-sm">-18%</span>
+                                <span class="text-xs text-gray-400">улучшение</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-500">CSAT</span>
+                                <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-amber-500 text-sm">S</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-bold">4.6 / 5</div>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="text-green-500 text-sm">+0.2</span>
+                                <span class="text-xs text-gray-400">vs прошлый период</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm text-gray-500">Решено за 1 контакт</span>
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                                    <span class="text-purple-500 text-sm">%</span>
+                                </div>
+                            </div>
+                            <div class="text-2xl font-bold">78%</div>
+                            <div class="flex items-center gap-1 mt-1">
+                                <span class="text-green-500 text-sm">+5%</span>
+                                <span class="text-xs text-gray-400">vs прошлый период</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="grid grid-cols-2 gap-6 mb-6">
+                        <!-- Conversations Chart -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                            <div class="annotation -top-3 left-4">График диалогов</div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-medium">Диалоги по дням</h3>
+                                <div class="flex gap-2">
+                                    <button class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Все</button>
+                                    <button class="px-2 py-1 text-gray-500 rounded text-xs hover:bg-gray-100">Telegram</button>
+                                    <button class="px-2 py-1 text-gray-500 rounded text-xs hover:bg-gray-100">WhatsApp</button>
+                                    <button class="px-2 py-1 text-gray-500 rounded text-xs hover:bg-gray-100">Web</button>
+                                </div>
+                            </div>
+                            <div class="chart-placeholder h-48 rounded-lg flex items-end justify-around p-4">
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 60%"></div>
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 80%"></div>
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 45%"></div>
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 90%"></div>
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 70%"></div>
+                                <div class="w-8 bg-blue-400 rounded-t" style="height: 55%"></div>
+                                <div class="w-8 bg-blue-500 rounded-t" style="height: 85%"></div>
+                            </div>
+                            <div class="flex justify-around mt-2 text-xs text-gray-500">
+                                <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
+                            </div>
+                        </div>
+
+                        <!-- Response Time Chart -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                            <div class="annotation -top-3 left-4">Время ответа</div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-medium">Среднее время ответа</h3>
+                                <span class="text-xs text-gray-500">По часам</span>
+                            </div>
+                            <div class="chart-placeholder h-48 rounded-lg flex items-center justify-center">
+                                <svg viewBox="0 0 200 100" class="w-full h-full p-4">
+                                    <polyline
+                                        fill="none"
+                                        stroke="#3b82f6"
+                                        stroke-width="2"
+                                        points="0,80 30,60 60,70 90,40 120,50 150,30 180,45 200,35"
+                                    />
+                                    <polyline
+                                        fill="url(#gradient)"
+                                        stroke="none"
+                                        points="0,100 0,80 30,60 60,70 90,40 120,50 150,30 180,45 200,35 200,100"
+                                        opacity="0.2"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Row -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <!-- Channel Distribution -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                            <div class="annotation -top-3 left-4">По каналам</div>
+                            <h3 class="font-medium mb-4">Распределение по каналам</h3>
+                            <div class="flex items-center justify-center mb-4">
+                                <!-- Donut chart placeholder -->
+                                <div class="w-32 h-32 rounded-full border-8 border-blue-500 relative">
+                                    <div class="absolute inset-0 rounded-full border-8 border-green-500" style="clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 50% 50%)"></div>
+                                    <div class="absolute inset-0 rounded-full border-8 border-purple-500" style="clip-path: polygon(50% 50%, 100% 100%, 50% 100%)"></div>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="text-lg font-bold">1,284</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 bg-blue-500 rounded"></div>
+                                        <span>Telegram</span>
+                                    </div>
+                                    <span class="font-medium">52%</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 bg-green-500 rounded"></div>
+                                        <span>WhatsApp</span>
+                                    </div>
+                                    <span class="font-medium">31%</span>
+                                </div>
+                                <div class="flex items-center justify-between text-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 bg-purple-500 rounded"></div>
+                                        <span>Web Widget</span>
+                                    </div>
+                                    <span class="font-medium">17%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Operator Leaderboard -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                            <div class="annotation -top-3 left-4">Рейтинг операторов</div>
+                            <h3 class="font-medium mb-4">Топ операторов</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3">
+                                    <span class="text-lg font-bold text-amber-500 w-6">1</span>
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Мария И.</div>
+                                        <div class="text-xs text-gray-500">CSAT: 4.9</div>
+                                    </div>
+                                    <span class="text-sm font-medium">156</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-lg font-bold text-gray-400 w-6">2</span>
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Алексей П.</div>
+                                        <div class="text-xs text-gray-500">CSAT: 4.8</div>
+                                    </div>
+                                    <span class="text-sm font-medium">142</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-lg font-bold text-amber-700 w-6">3</span>
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Елена С.</div>
+                                        <div class="text-xs text-gray-500">CSAT: 4.7</div>
+                                    </div>
+                                    <span class="text-sm font-medium">128</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <span class="text-lg font-bold text-gray-300 w-6">4</span>
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div class="flex-1">
+                                        <div class="text-sm font-medium">Дмитрий К.</div>
+                                        <div class="text-xs text-gray-500">CSAT: 4.6</div>
+                                    </div>
+                                    <span class="text-sm font-medium">115</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Effectiveness -->
+                        <div class="bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                            <div class="annotation -top-3 left-4">ИИ-ассистент</div>
+                            <h3 class="font-medium mb-4">Эффективность ИИ</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex items-center justify-between text-sm mb-1">
+                                        <span class="text-gray-500">Подсказки приняты</span>
+                                        <span class="font-medium">68%</span>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-green-500 rounded-full" style="width: 68%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between text-sm mb-1">
+                                        <span class="text-gray-500">Подсказки отредактированы</span>
+                                        <span class="font-medium">24%</span>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-amber-500 rounded-full" style="width: 24%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center justify-between text-sm mb-1">
+                                        <span class="text-gray-500">Подсказки отклонены</span>
+                                        <span class="font-medium">8%</span>
+                                    </div>
+                                    <div class="h-2 bg-gray-200 rounded-full">
+                                        <div class="h-2 bg-red-500 rounded-full" style="width: 8%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="pt-4 border-t border-gray-200">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-sm text-gray-500">Сэкономлено времени</span>
+                                        <span class="text-lg font-bold text-green-600">~45 час/нед</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="mt-6 bg-white border border-gray-200 rounded-xl p-4 shadow-sm relative">
+                        <div class="annotation -top-3 left-4">Последняя активность</div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-medium">Последние диалоги</h3>
+                            <a href="#" class="text-sm text-blue-500 hover:underline">Смотреть все</a>
+                        </div>
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left text-sm text-gray-500 border-b">
+                                    <th class="pb-3 font-medium">Клиент</th>
+                                    <th class="pb-3 font-medium">Канал</th>
+                                    <th class="pb-3 font-medium">Оператор</th>
+                                    <th class="pb-3 font-medium">Статус</th>
+                                    <th class="pb-3 font-medium">Время ответа</th>
+                                    <th class="pb-3 font-medium">CSAT</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b">
+                                    <td class="py-3">Анна С.</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">Telegram</span></td>
+                                    <td class="py-3">Мария И.</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Решён</span></td>
+                                    <td class="py-3">1.2 мин</td>
+                                    <td class="py-3">5/5</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3">+7 999 ***-**-45</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">WhatsApp</span></td>
+                                    <td class="py-3">Алексей П.</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">В работе</span></td>
+                                    <td class="py-3">3.5 мин</td>
+                                    <td class="py-3">-</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-3">Гость #4892</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Web</span></td>
+                                    <td class="py-3">Елена С.</td>
+                                    <td class="py-3"><span class="px-2 py-1 bg-green-100 text-green-700 rounded text-xs">Решён</span></td>
+                                    <td class="py-3">2.8 мин</td>
+                                    <td class="py-3">4/5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Description -->
+        <div class="mt-8 p-4 bg-white rounded-lg shadow">
+            <h3 class="font-semibold mb-4">Описание метрик</h3>
+            <div class="grid grid-cols-3 gap-6 text-sm">
+                <div>
+                    <h4 class="font-medium mb-2">Операционные</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li><strong>FRT</strong> — время первого ответа</li>
+                        <li><strong>ART</strong> — среднее время решения</li>
+                        <li><strong>FCR</strong> — решено за 1 контакт</li>
+                        <li>Нагрузка по операторам</li>
+                        <li>Пиковые часы</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-2">Качественные</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li><strong>CSAT</strong> — удовлетворённость (1-5)</li>
+                        <li><strong>NPS</strong> — индекс лояльности</li>
+                        <li>Оценки после диалога</li>
+                        <li>Комментарии клиентов</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-2">ИИ-метрики</h4>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1">
+                        <li>% принятых подсказок</li>
+                        <li>% отредактированных</li>
+                        <li>Сэкономленное время</li>
+                        <li>Качество RAG-ответов</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Админ-панель и конструктор — OmniSupport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .wireframe-box {
+            border: 2px dashed #94a3b8;
+            background: #f8fafc;
+        }
+        .annotation {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            white-space: nowrap;
+            z-index: 10;
+        }
+        .node {
+            transition: all 0.2s ease;
+        }
+        .node:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold mb-2">Wireframe: Админ-панель и No-code конструктор</h1>
+        <p class="text-gray-500 mb-8">OmniSupport — Настройка бота и сценариев</p>
+
+        <!-- Main Layout -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden" style="height: 750px;">
+            <div class="flex h-full">
+
+                <!-- Sidebar Navigation -->
+                <div class="w-56 bg-gray-900 text-white flex flex-col">
+                    <!-- Logo -->
+                    <div class="p-4 border-b border-gray-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-blue-500 rounded"></div>
+                            <span class="font-semibold">OmniSupport</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mt-1">Админ-панель</div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="flex-1 p-2 space-y-1">
+                        <div class="text-xs text-gray-500 px-3 py-2">УПРАВЛЕНИЕ</div>
+
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Дашборд</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Операторы</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Клиенты</span>
+                        </a>
+
+                        <div class="text-xs text-gray-500 px-3 py-2 mt-4">КОНСТРУКТОР</div>
+
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 bg-gray-800 rounded text-sm">
+                            <span class="w-5 h-5 bg-blue-500 rounded"></span>
+                            <span>Сценарии</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>База знаний</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Быстрые ответы</span>
+                        </a>
+
+                        <div class="text-xs text-gray-500 px-3 py-2 mt-4">НАСТРОЙКИ</div>
+
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Каналы</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Виджет</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Интеграции</span>
+                        </a>
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Брендинг</span>
+                        </a>
+                    </nav>
+                </div>
+
+                <!-- Main Content Area -->
+                <div class="flex-1 flex flex-col">
+                    <!-- Header -->
+                    <div class="h-14 border-b border-gray-200 flex items-center justify-between px-6">
+                        <div>
+                            <h2 class="font-semibold">Конструктор сценариев</h2>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button class="px-4 py-2 border rounded-lg text-sm hover:bg-gray-50">Шаблоны</button>
+                            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600">+ Новый сценарий</button>
+                        </div>
+                    </div>
+
+                    <!-- Scenario Builder -->
+                    <div class="flex-1 flex">
+                        <!-- Scenarios List -->
+                        <div class="w-64 border-r border-gray-200 bg-gray-50 overflow-auto">
+                            <div class="p-4 border-b border-gray-200">
+                                <input type="text" placeholder="Поиск сценариев..." class="w-full px-3 py-2 border rounded-lg text-sm">
+                            </div>
+
+                            <div class="p-2 space-y-1 relative">
+                                <div class="annotation right-2 top-2">Список сценариев</div>
+
+                                <div class="p-3 bg-blue-50 border border-blue-200 rounded-lg cursor-pointer">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Приветствие</span>
+                                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Триггер: первое сообщение</p>
+                                </div>
+
+                                <div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Статус заказа</span>
+                                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Триггер: ключевые слова</p>
+                                </div>
+
+                                <div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Вне рабочего времени</span>
+                                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Триггер: расписание</p>
+                                </div>
+
+                                <div class="p-3 hover:bg-gray-100 rounded-lg cursor-pointer">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Сбор заявки</span>
+                                        <span class="w-2 h-2 bg-gray-300 rounded-full"></span>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">Черновик</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Canvas Area -->
+                        <div class="flex-1 bg-gray-100 relative overflow-hidden">
+                            <div class="annotation left-4 top-4">Визуальный редактор (drag & drop)</div>
+
+                            <!-- Toolbar -->
+                            <div class="absolute top-4 right-4 flex gap-2">
+                                <button class="p-2 bg-white rounded-lg shadow hover:bg-gray-50">
+                                    <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                </button>
+                                <button class="p-2 bg-white rounded-lg shadow hover:bg-gray-50">
+                                    <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                </button>
+                                <button class="p-2 bg-white rounded-lg shadow hover:bg-gray-50">
+                                    <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                </button>
+                            </div>
+
+                            <!-- Zoom controls -->
+                            <div class="absolute bottom-4 right-4 flex gap-1 bg-white rounded-lg shadow p-1">
+                                <button class="px-3 py-1 hover:bg-gray-100 rounded text-sm">-</button>
+                                <span class="px-3 py-1 text-sm">100%</span>
+                                <button class="px-3 py-1 hover:bg-gray-100 rounded text-sm">+</button>
+                            </div>
+
+                            <!-- Scenario Nodes -->
+                            <div class="absolute inset-0 p-8">
+                                <!-- Start Node -->
+                                <div class="node absolute left-20 top-20 w-48 bg-green-100 border-2 border-green-400 rounded-lg p-3 cursor-move shadow">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-xs">S</span>
+                                        </div>
+                                        <span class="font-medium text-sm">Начало</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">Триггер: первое сообщение</p>
+                                </div>
+
+                                <!-- Connection line -->
+                                <svg class="absolute left-44 top-36 w-20 h-20" style="pointer-events: none;">
+                                    <path d="M 0 0 Q 40 20 40 60" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                                </svg>
+
+                                <!-- Message Node -->
+                                <div class="node absolute left-32 top-48 w-56 bg-white border-2 border-blue-400 rounded-lg p-3 cursor-move shadow">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-xs">M</span>
+                                        </div>
+                                        <span class="font-medium text-sm">Сообщение</span>
+                                    </div>
+                                    <div class="bg-gray-50 rounded p-2 text-xs">
+                                        Здравствуйте! Чем могу помочь?
+                                    </div>
+                                </div>
+
+                                <!-- Connection lines -->
+                                <svg class="absolute left-60 top-72 w-40 h-40" style="pointer-events: none;">
+                                    <path d="M 0 0 Q 0 40 -30 60" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                                    <path d="M 0 0 Q 0 40 60 60" stroke="#94a3b8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+                                </svg>
+
+                                <!-- Buttons Node -->
+                                <div class="node absolute left-8 top-80 w-52 bg-white border-2 border-purple-400 rounded-lg p-3 cursor-move shadow">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-xs">B</span>
+                                        </div>
+                                        <span class="font-medium text-sm">Кнопки</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <div class="bg-gray-100 rounded px-2 py-1 text-xs">Статус заказа</div>
+                                        <div class="bg-gray-100 rounded px-2 py-1 text-xs">Возврат товара</div>
+                                        <div class="bg-gray-100 rounded px-2 py-1 text-xs">Связаться с оператором</div>
+                                    </div>
+                                </div>
+
+                                <!-- Condition Node -->
+                                <div class="node absolute left-72 top-80 w-52 bg-white border-2 border-orange-400 rounded-lg p-3 cursor-move shadow">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-xs">?</span>
+                                        </div>
+                                        <span class="font-medium text-sm">Условие</span>
+                                    </div>
+                                    <div class="text-xs text-gray-600">
+                                        Если рабочее время
+                                    </div>
+                                    <div class="flex gap-2 mt-2">
+                                        <span class="text-xs text-green-600">Да →</span>
+                                        <span class="text-xs text-red-600">Нет →</span>
+                                    </div>
+                                </div>
+
+                                <!-- Transfer Node -->
+                                <div class="node absolute right-16 top-56 w-48 bg-white border-2 border-teal-400 rounded-lg p-3 cursor-move shadow">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
+                                            <span class="text-white text-xs">T</span>
+                                        </div>
+                                        <span class="font-medium text-sm">Передать оператору</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">Отдел: Поддержка</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Properties Panel -->
+                        <div class="w-72 border-l border-gray-200 bg-white overflow-auto">
+                            <div class="p-4 border-b border-gray-200 relative">
+                                <div class="annotation right-2 -top-2">Свойства элемента</div>
+                                <h3 class="font-medium">Свойства</h3>
+                                <p class="text-xs text-gray-500">Сообщение</p>
+                            </div>
+
+                            <div class="p-4 space-y-4">
+                                <!-- Node Name -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Название</label>
+                                    <input type="text" value="Приветствие" class="w-full px-3 py-2 border rounded-lg text-sm">
+                                </div>
+
+                                <!-- Message Text -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Текст сообщения</label>
+                                    <textarea rows="3" class="w-full px-3 py-2 border rounded-lg text-sm resize-none">Здравствуйте! Чем могу помочь?</textarea>
+                                    <div class="flex gap-2 mt-2">
+                                        <button class="p-1 hover:bg-gray-100 rounded text-xs">{имя}</button>
+                                        <button class="p-1 hover:bg-gray-100 rounded text-xs">{канал}</button>
+                                    </div>
+                                </div>
+
+                                <!-- Delay -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Задержка (сек)</label>
+                                    <input type="number" value="0" class="w-full px-3 py-2 border rounded-lg text-sm">
+                                </div>
+
+                                <!-- Typing Indicator -->
+                                <div class="flex items-center justify-between">
+                                    <label class="text-sm font-medium text-gray-700">Показывать "печатает"</label>
+                                    <button class="w-10 h-6 bg-blue-500 rounded-full relative">
+                                        <span class="absolute right-1 top-1 w-4 h-4 bg-white rounded-full"></span>
+                                    </button>
+                                </div>
+
+                                <!-- Attachments -->
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Вложения</label>
+                                    <button class="w-full px-3 py-2 border-2 border-dashed border-gray-300 rounded-lg text-sm text-gray-500 hover:border-blue-400 hover:text-blue-500">
+                                        + Добавить файл
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 border-t border-gray-200">
+                                <button class="w-full px-4 py-2 bg-red-50 text-red-600 rounded-lg text-sm hover:bg-red-100">
+                                    Удалить элемент
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Toolbar -->
+                    <div class="h-12 border-t border-gray-200 flex items-center justify-between px-4 bg-gray-50">
+                        <div class="flex items-center gap-4">
+                            <span class="text-sm text-gray-500">Сценарий: Приветствие</span>
+                            <span class="px-2 py-0.5 bg-green-100 text-green-700 rounded text-xs">Активен</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="px-4 py-1.5 border rounded-lg text-sm hover:bg-white">Тестировать</button>
+                            <button class="px-4 py-1.5 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600">Сохранить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Node Types Legend -->
+        <div class="mt-8 p-4 bg-white rounded-lg shadow">
+            <h3 class="font-semibold mb-4">Типы узлов конструктора</h3>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">S</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Триггер</div>
+                        <div class="text-xs text-gray-500">Начало сценария</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">M</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Сообщение</div>
+                        <div class="text-xs text-gray-500">Отправка текста</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">B</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Кнопки</div>
+                        <div class="text-xs text-gray-500">Quick replies</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">?</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Условие</div>
+                        <div class="text-xs text-gray-500">Ветвление логики</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">T</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Передача</div>
+                        <div class="text-xs text-gray-500">Оператору/отделу</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">F</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Форма</div>
+                        <div class="text-xs text-gray-500">Сбор данных</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-indigo-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">W</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">Webhook</div>
+                        <div class="text-xs text-gray-500">Внешний API</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center">
+                        <span class="text-white text-sm">AI</span>
+                    </div>
+                    <div>
+                        <div class="font-medium text-sm">ИИ-ответ</div>
+                        <div class="text-xs text-gray-500">RAG генерация</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

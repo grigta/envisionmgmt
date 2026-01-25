@@ -1,0 +1,92 @@
+services:
+  # PostgreSQL - основная база данных
+  postgres:
+    image: postgres:16-alpine
+    container_name: omnisupport-postgres
+    environment:
+      POSTGRES_USER: omnisupport
+      POSTGRES_PASSWORD: omnisupport_dev
+      POSTGRES_DB: omnisupport
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U omnisupport"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Redis - кэш, очереди, pub/sub
+  redis:
+    image: redis:7-alpine
+    container_name: omnisupport-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # Qdrant - векторная БД для RAG
+  qdrant:
+    image: qdrant/qdrant:v1.12.1
+    container_name: omnisupport-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    environment:
+      QDRANT__SERVICE__GRPC_PORT: 6334
+
+  # Core API Service
+  core:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: omnisupport-core
+    command: uvicorn services.core.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://omnisupport:omnisupport_dev@postgres:5432/omnisupport
+      - REDIS_URL=redis://redis:6379/0
+      - QDRANT_URL=http://qdrant:6333
+      - DEBUG=true
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      qdrant:
+        condition: service_started
+
+  # Background workers
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: omnisupport-worker
+    command: arq workers.main.WorkerSettings
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://omnisupport:omnisupport_dev@postgres:5432/omnisupport
+      - REDIS_URL=redis://redis:6379/0
+      - QDRANT_URL=http://qdrant:6333
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  redis_data:
+  qdrant_data:

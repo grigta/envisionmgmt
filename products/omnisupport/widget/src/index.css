@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* Widget CSS Variables - configurable via config API */
+:root,
+:host {
+  /* Primary colors (overridden by config) */
+  --omni-primary: #0369a1;
+  --omni-primary-hover: #0284c7;
+  --omni-text-on-primary: #ffffff;
+
+  /* Surface colors */
+  --omni-surface: #ffffff;
+  --omni-background: #f8fafc;
+
+  /* Text colors */
+  --omni-text: #0f172a;
+  --omni-text-muted: #64748b;
+
+  /* Border colors */
+  --omni-border: #e2e8f0;
+  --omni-border-light: #f1f5f9;
+
+  /* Status colors */
+  --omni-success: #22c55e;
+  --omni-error: #dc2626;
+  --omni-warning: #f59e0b;
+
+  /* Spacing */
+  --omni-space-xs: 0.25rem;
+  --omni-space-sm: 0.5rem;
+  --omni-space-md: 1rem;
+  --omni-space-lg: 1.5rem;
+  --omni-space-xl: 2rem;
+
+  /* Shadows */
+  --omni-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --omni-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --omni-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --omni-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Border radius */
+  --omni-radius-sm: 6px;
+  --omni-radius-md: 8px;
+  --omni-radius-lg: 12px;
+  --omni-radius-xl: 16px;
+  --omni-radius-full: 9999px;
+
+  /* Widget dimensions */
+  --omni-widget-width: 380px;
+  --omni-widget-height: 600px;
+  --omni-launcher-size: 60px;
+}
+
+/* Widget container styles */
+.omni-widget {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--omni-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.omni-widget * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom scrollbar */
+.omni-widget ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.omni-widget ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.omni-widget ::-webkit-scrollbar-thumb {
+  background: var(--omni-border);
+  border-radius: var(--omni-radius-full);
+}
+
+.omni-widget ::-webkit-scrollbar-thumb:hover {
+  background: var(--omni-text-muted);
+}
+
+/* Focus styles */
+.omni-widget :focus-visible {
+  outline: 2px solid var(--omni-primary);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .omni-widget *,
+  .omni-widget *::before,
+  .omni-widget *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

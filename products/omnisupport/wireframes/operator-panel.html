@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe: Операторская панель — OmniSupport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .wireframe-box {
+            border: 2px dashed #94a3b8;
+            background: #f8fafc;
+        }
+        .wireframe-text {
+            color: #64748b;
+        }
+        .annotation {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            position: absolute;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-2xl font-bold mb-2">Wireframe: Операторская панель</h1>
+        <p class="text-gray-500 mb-8">OmniSupport — Интерфейс оператора поддержки</p>
+
+        <!-- Main Layout -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden" style="height: 700px;">
+            <div class="flex h-full">
+
+                <!-- Sidebar -->
+                <div class="w-64 bg-gray-900 text-white flex flex-col">
+                    <!-- Logo -->
+                    <div class="p-4 border-b border-gray-700">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 bg-blue-500 rounded"></div>
+                            <span class="font-semibold">OmniSupport</span>
+                        </div>
+                    </div>
+
+                    <!-- Operator Status -->
+                    <div class="p-4 border-b border-gray-700 relative">
+                        <div class="annotation -right-2 -top-2">Статус оператора</div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-600 rounded-full"></div>
+                            <div>
+                                <div class="text-sm font-medium">Иван Петров</div>
+                                <div class="flex items-center gap-1 text-xs">
+                                    <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                    <span class="text-green-400">Онлайн</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <nav class="flex-1 p-2">
+                        <div class="space-y-1">
+                            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-gray-800 rounded text-sm">
+                                <span class="w-5 h-5 bg-gray-600 rounded"></span>
+                                <span>Мои диалоги</span>
+                                <span class="ml-auto bg-blue-500 text-xs px-2 py-0.5 rounded-full">12</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                                <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                                <span>Очередь</span>
+                                <span class="ml-auto bg-orange-500 text-xs px-2 py-0.5 rounded-full">5</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                                <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                                <span>Все диалоги</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                                <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                                <span>Клиенты</span>
+                            </a>
+                        </div>
+                    </nav>
+
+                    <!-- Settings -->
+                    <div class="p-2 border-t border-gray-700">
+                        <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-gray-800 rounded text-sm text-gray-400">
+                            <span class="w-5 h-5 bg-gray-700 rounded"></span>
+                            <span>Настройки</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Conversations List -->
+                <div class="w-80 border-r border-gray-200 flex flex-col bg-gray-50">
+                    <!-- Search & Filters -->
+                    <div class="p-4 border-b border-gray-200 relative">
+                        <div class="annotation -right-2 top-1">Поиск и фильтры</div>
+                        <input type="text" placeholder="Поиск диалогов..." class="w-full px-3 py-2 border rounded-lg text-sm">
+                        <div class="flex gap-2 mt-2">
+                            <button class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs">Все</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-xs">Открытые</button>
+                            <button class="px-3 py-1 bg-gray-200 text-gray-600 rounded-full text-xs">Ожидают</button>
+                        </div>
+                    </div>
+
+                    <!-- Conversation Items -->
+                    <div class="flex-1 overflow-auto">
+                        <!-- Active conversation -->
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-500 cursor-pointer relative">
+                            <div class="annotation -right-2 top-1">Активный диалог</div>
+                            <div class="flex items-start gap-3">
+                                <div class="relative">
+                                    <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                                    <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-blue-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-xs">TG</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Анна Смирнова</span>
+                                        <span class="text-xs text-gray-500">2 мин</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">Здравствуйте, у меня вопрос по...</p>
+                                    <div class="flex items-center gap-2 mt-1">
+                                        <span class="px-2 py-0.5 bg-orange-100 text-orange-700 rounded text-xs">Срочно</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Other conversations -->
+                        <div class="p-4 border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <div class="relative">
+                                    <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                                    <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-xs">WA</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">+7 999 123-45-67</span>
+                                        <span class="text-xs text-gray-500">15 мин</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">Спасибо за информацию!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 border-b border-gray-200 hover:bg-gray-100 cursor-pointer">
+                            <div class="flex items-start gap-3">
+                                <div class="relative">
+                                    <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                                    <div class="absolute -bottom-1 -right-1 w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
+                                        <span class="text-white text-xs">W</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-medium text-sm">Гость #4521</span>
+                                        <span class="text-xs text-gray-500">1 час</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 truncate">Подскажите, как оформить возврат?</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Area -->
+                <div class="flex-1 flex flex-col">
+                    <!-- Chat Header -->
+                    <div class="h-16 border-b border-gray-200 flex items-center justify-between px-4 relative">
+                        <div class="annotation left-1/2 -top-2 -translate-x-1/2">Заголовок чата</div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                            <div>
+                                <div class="font-medium">Анна Смирнова</div>
+                                <div class="text-xs text-gray-500">Telegram  @anna_smirnova</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button class="px-3 py-1.5 text-sm border rounded-lg hover:bg-gray-50">Передать</button>
+                            <button class="px-3 py-1.5 text-sm bg-green-500 text-white rounded-lg hover:bg-green-600">Решено</button>
+                        </div>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="flex-1 overflow-auto p-4 space-y-4 bg-gray-50">
+                        <!-- Customer message -->
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full shrink-0"></div>
+                            <div class="max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow-sm">
+                                    <p class="text-sm">Здравствуйте! У меня вопрос по заказу #12345. Когда ожидается доставка?</p>
+                                </div>
+                                <span class="text-xs text-gray-400 mt-1 block">14:32</span>
+                            </div>
+                        </div>
+
+                        <!-- Operator message -->
+                        <div class="flex gap-3 justify-end">
+                            <div class="max-w-md">
+                                <div class="bg-blue-500 text-white rounded-lg p-3">
+                                    <p class="text-sm">Здравствуйте, Анна! Сейчас проверю информацию по вашему заказу.</p>
+                                </div>
+                                <span class="text-xs text-gray-400 mt-1 block text-right">14:33</span>
+                            </div>
+                        </div>
+
+                        <!-- Customer message -->
+                        <div class="flex gap-3">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full shrink-0"></div>
+                            <div class="max-w-md">
+                                <div class="bg-white rounded-lg p-3 shadow-sm">
+                                    <p class="text-sm">Спасибо! Буду ждать</p>
+                                </div>
+                                <span class="text-xs text-gray-400 mt-1 block">14:35</span>
+                            </div>
+                        </div>
+
+                        <!-- Typing indicator -->
+                        <div class="flex gap-3 items-center text-gray-400 text-sm">
+                            <div class="w-8 h-8 bg-gray-300 rounded-full shrink-0"></div>
+                            <span>Анна печатает...</span>
+                        </div>
+                    </div>
+
+                    <!-- AI Suggestion -->
+                    <div class="px-4 py-3 bg-amber-50 border-t border-amber-200 relative">
+                        <div class="annotation right-4 -top-2">ИИ-подсказка</div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-amber-200 rounded-full flex items-center justify-center shrink-0">
+                                <span class="text-amber-700 text-sm">AI</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-amber-900">Заказ #12345 отправлен 18.01, ожидаемая доставка 22.01. Трек-номер: RU123456789.</p>
+                                <div class="flex gap-2 mt-2">
+                                    <button class="px-3 py-1 bg-amber-200 text-amber-800 rounded text-xs hover:bg-amber-300">Использовать</button>
+                                    <button class="px-3 py-1 text-amber-700 rounded text-xs hover:bg-amber-100">Редактировать</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="p-4 border-t border-gray-200 relative">
+                        <div class="annotation right-4 -top-2">Поле ввода</div>
+                        <div class="flex items-end gap-3">
+                            <div class="flex-1">
+                                <div class="flex gap-2 mb-2">
+                                    <button class="p-2 hover:bg-gray-100 rounded">
+                                        <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                    </button>
+                                    <button class="p-2 hover:bg-gray-100 rounded">
+                                        <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                    </button>
+                                    <button class="p-2 hover:bg-gray-100 rounded">
+                                        <div class="w-5 h-5 bg-gray-400 rounded"></div>
+                                    </button>
+                                </div>
+                                <textarea rows="2" placeholder="Введите сообщение..." class="w-full px-3 py-2 border rounded-lg resize-none text-sm"></textarea>
+                            </div>
+                            <button class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                                Отправить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Info Sidebar -->
+                <div class="w-72 border-l border-gray-200 bg-white overflow-auto relative">
+                    <div class="annotation right-4 top-4">Карточка клиента</div>
+                    <!-- Customer Profile -->
+                    <div class="p-4 border-b border-gray-200">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-3"></div>
+                            <h3 class="font-medium">Анна Смирнова</h3>
+                            <p class="text-sm text-gray-500">Клиент с 15.03.2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="p-4 border-b border-gray-200">
+                        <h4 class="text-sm font-medium text-gray-500 mb-3">Контакты</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-gray-300 rounded"></div>
+                                <span>+7 999 123-45-67</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-gray-300 rounded"></div>
+                                <span>anna@email.com</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-blue-400 rounded"></div>
+                                <span>@anna_smirnova</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="p-4 border-b border-gray-200">
+                        <h4 class="text-sm font-medium text-gray-500 mb-3">Теги</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded text-xs">VIP</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Ритейл</span>
+                            <span class="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">+ Добавить</span>
+                        </div>
+                    </div>
+
+                    <!-- Recent Conversations -->
+                    <div class="p-4 border-b border-gray-200">
+                        <h4 class="text-sm font-medium text-gray-500 mb-3">История (5 обращений)</h4>
+                        <div class="space-y-2">
+                            <div class="p-2 bg-gray-50 rounded text-xs">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Вопрос по доставке</span>
+                                    <span class="text-gray-400">Сегодня</span>
+                                </div>
+                                <span class="text-orange-500">Открыт</span>
+                            </div>
+                            <div class="p-2 bg-gray-50 rounded text-xs">
+                                <div class="flex justify-between">
+                                    <span class="font-medium">Возврат товара</span>
+                                    <span class="text-gray-400">15.01</span>
+                                </div>
+                                <span class="text-green-500">Решён</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div class="p-4">
+                        <h4 class="text-sm font-medium text-gray-500 mb-3">Заметки</h4>
+                        <textarea rows="3" placeholder="Добавить заметку..." class="w-full px-3 py-2 border rounded-lg resize-none text-sm"></textarea>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="mt-8 p-4 bg-white rounded-lg shadow">
+            <h3 class="font-semibold mb-4">Описание элементов</h3>
+            <div class="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                    <h4 class="font-medium">Левая панель (Sidebar)</h4>
+                    <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                        <li>Статус оператора (онлайн/офлайн/перерыв)</li>
+                        <li>Навигация: мои диалоги, очередь, все, клиенты</li>
+                        <li>Счётчики непрочитанных сообщений</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium">Список диалогов</h4>
+                    <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                        <li>Поиск и фильтрация по статусу</li>
+                        <li>Иконка канала (TG/WA/Web)</li>
+                        <li>Превью последнего сообщения</li>
+                        <li>Теги приоритета</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium">Область чата</h4>
+                    <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                        <li>История сообщений</li>
+                        <li>ИИ-подсказки на основе RAG</li>
+                        <li>Кнопки быстрых действий</li>
+                        <li>Вложения (файлы, изображения)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium">Карточка клиента</h4>
+                    <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                        <li>Контактные данные из всех каналов</li>
+                        <li>Теги и сегментация</li>
+                        <li>История всех обращений</li>
+                        <li>Внутренние заметки</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
