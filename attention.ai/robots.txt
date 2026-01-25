@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://attention-ai.ru/sitemap.xml
