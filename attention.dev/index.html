@@ -2,6 +2,33 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    
+    <!-- Google Analytics (GA4) -->
+    <!-- TODO: Replace GA_MEASUREMENT_ID with your actual Google Analytics 4 Measurement ID (e.g., G-XXXXXXXXXX) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
+    <!-- Yandex.Metrika -->
+    <!-- TODO: Replace XXXXXXXX with your actual Yandex.Metrika counter ID -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        ym(XXXXXXXX, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+        });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attention.dev — Создание и Продвижение Сайтов</title>
     <meta name="description" content="Создаём сайты, которые действительно приносят результат. Интернет-магазины, лендинги, сайты услуг. Реклама в Google, Instagram и Facebook.">
