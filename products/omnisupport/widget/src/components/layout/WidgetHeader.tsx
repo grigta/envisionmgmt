@@ -1,4 +1,4 @@
-import { X, ChevronLeft, FileText, MessageCircle } from "lucide-react";
+import { X, ChevronLeft, FileText, MessageCircle, Sun, Moon, Monitor } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useWidgetStore } from "@/stores/widget.store";
 import { Avatar } from "@/components/ui";
@@ -13,6 +13,11 @@ export function WidgetHeader({ showBack, onBack }: WidgetHeaderProps) {
   const close = useWidgetStore((state) => state.close);
   const currentView = useWidgetStore((state) => state.currentView);
   const setView = useWidgetStore((state) => state.setView);
+  const theme = useWidgetStore((state) => state.theme);
+  const toggleTheme = useWidgetStore((state) => state.toggleTheme);
+
+  const ThemeIcon = theme === "light" ? Sun : theme === "dark" ? Moon : Monitor;
+  const themeLabel = theme === "light" ? "Светлая тема" : theme === "dark" ? "Тёмная тема" : "Системная тема";
 
   const titles: Record<string, string> = {
     chat: "Чат",
@@ -83,6 +88,16 @@ export function WidgetHeader({ showBack, onBack }: WidgetHeaderProps) {
             <MessageCircle size={18} />
           </button>
         )}
+
+        {/* Theme toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-lg hover:bg-white/10 transition-colors"
+          aria-label={themeLabel}
+          title={themeLabel}
+        >
+          <ThemeIcon size={18} />
+        </button>
 
         {/* Close button */}
         <button

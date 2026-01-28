@@ -9,6 +9,7 @@ interface WidgetContainerProps {
 export function WidgetContainer({ children }: WidgetContainerProps) {
   const isOpen = useWidgetStore((state) => state.isOpen);
   const config = useWidgetStore((state) => state.config);
+  const theme = useWidgetStore((state) => state.theme);
 
   const position = config?.position || "bottom_right";
 
@@ -31,14 +32,17 @@ export function WidgetContainer({ children }: WidgetContainerProps) {
   return (
     <div
       className={cn(
-        "omni-widget fixed z-[9998]",
+        "omni-widget omni-widget-container fixed z-[9998]",
         "w-[var(--omni-widget-width)] h-[var(--omni-widget-height)]",
         "max-w-[calc(100vw-40px)] max-h-[calc(100vh-120px)]",
         "bg-[var(--omni-surface)] rounded-2xl shadow-2xl",
         "flex flex-col overflow-hidden",
         "animate-slide-up",
-        positionClasses[position]
+        "transition-colors duration-200",
+        positionClasses[position],
+        theme === "dark" && "dark"
       )}
+      data-theme={theme}
       style={{ transformOrigin: transformOrigin[position] }}
       role="dialog"
       aria-label="Чат поддержки"

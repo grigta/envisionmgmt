@@ -6,12 +6,15 @@ import { api } from "@/lib/api";
 import { wsManager } from "@/lib/websocket";
 import { adjustColor } from "@/lib/utils";
 
+type ThemeMode = "light" | "dark" | "system";
+
 interface WidgetState {
   // UI State
   isOpen: boolean;
   isLoading: boolean;
   error: string | null;
   currentView: "chat" | "articles" | "article" | "offline";
+  theme: ThemeMode;
 
   // Config
   tenantSlug: string | null;
@@ -36,6 +39,8 @@ interface WidgetState {
   close: () => void;
   toggle: () => void;
   setView: (view: WidgetState["currentView"]) => void;
+  setTheme: (theme: ThemeMode) => void;
+  toggleTheme: () => void;
 
   // Visitor actions
   identify: (data: { email?: string; name?: string; metadata?: Record<string, unknown> }) => void;
@@ -60,6 +65,7 @@ export const useWidgetStore = create<WidgetState>((set, get) => ({
   isLoading: false,
   error: null,
   currentView: "chat",
+  theme: (storage.get<ThemeMode>("omni_theme") || "system") as ThemeMode,
 
   tenantSlug: null,
   config: null,
@@ -139,6 +145,18 @@ export const useWidgetStore = create<WidgetState>((set, get) => ({
   close: () => set({ isOpen: false }),
   toggle: () => set((state) => ({ isOpen: !state.isOpen })),
   setView: (currentView) => set({ currentView }),
+  
+  // Theme actions
+  setTheme: (theme: ThemeMode) => {
+    storage.set("omni_theme", theme);
+    set({ theme });
+  },
+  toggleTheme: () => {
+    const current = get().theme;
+    const next: ThemeMode = current === "light" ? "dark" : current === "dark" ? "system" : "light";
+    storage.set("omni_theme", next);
+    set({ theme: next });
+  },
 
   // Identify visitor
   identify: (data) => {
