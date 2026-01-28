@@ -22,14 +22,13 @@
 - **Status**: DONE (2026-01-28)
 - **Commit**: `feat(omnisupport): add Claude and OpenAI LLM providers`
 
-### 2. [OmniSupport] Chat Widget — финализация
-- **Impact**: Critical | **Effort**: Medium  
-- **Score**: 80
+### ~~2. [OmniSupport] Chat Widget — финализация~~ ✅
+- **Status**: DONE (2026-01-28)
 - **Path**: `products/omnisupport/widget/`
-- **Tasks**:
-  - [ ] Dark/Light theme
-  - [ ] Mobile responsive
-  - [ ] Минифицированный bundle
+- **Completed**:
+  - [x] Dark/Light theme
+  - [x] Mobile responsive  
+  - [x] Минифицированный bundle (79KB gzipped)
 
 ---
 
@@ -60,6 +59,7 @@
 
 - [x] README.md для OmniSupport (2026-01-28)
 - [x] CEO Analysis — оценка реального состояния (2026-01-28)
+- [x] Chat Widget — Dark/Light theme + Mobile responsive + Bundle (2026-01-28)
 
 ---
 
