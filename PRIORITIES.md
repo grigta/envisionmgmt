@@ -43,10 +43,11 @@
   - [x] Pricing (3 tiers)
   - [x] CTA + Footer
 
-### 4. [Attention.ai] SEO + Contact Form
-- **Impact**: Important | **Effort**: Easy
-- **Score**: 70
+### ~~4. [Attention.ai] SEO + Contact Form~~ ✅
+- **Status**: DONE (2026-01-28)
 - **Path**: `attention.ai/`
+- SEO was already complete (meta, JSON-LD)
+- Added Web3Forms integration for contact form
 
 ### 5. [Attention.dev] Portfolio + Contact Form
 - **Impact**: Important | **Effort**: Easy
@@ -61,6 +62,7 @@
 - [x] CEO Analysis — оценка реального состояния (2026-01-28)
 - [x] Chat Widget — Dark/Light theme + Mobile responsive + Bundle (2026-01-28)
 - [x] OmniSupport Landing Page (2026-01-28)
+- [x] Attention.ai — SEO + Contact Form (2026-01-28)
 
 ---
 

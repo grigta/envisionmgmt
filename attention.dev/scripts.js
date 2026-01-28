@@ -256,6 +256,9 @@ function initFormValidation() {
 
     if (!form) return;
 
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -272,19 +275,33 @@ function initFormValidation() {
             return;
         }
 
+        // Hide previous messages
+        if (successMsg) successMsg.style.display = 'none';
+        if (errorMsg) errorMsg.style.display = 'none';
+
         // Show loading state
         submitBtn.disabled = true;
         submitBtn.textContent = 'Отправка...';
 
-        // Simulate form submission (replace with actual API call)
         try {
-            await new Promise(resolve => setTimeout(resolve, 1500));
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            });
 
-            // Success
-            showNotification('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
-            form.reset();
+            const data = await response.json();
+
+            if (data.success) {
+                // Success
+                showNotification('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.', 'success');
+                if (successMsg) successMsg.style.display = 'block';
+                form.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
         } catch (error) {
             showNotification('Произошла ошибка. Пожалуйста, попробуйте позже.', 'error');
+            if (errorMsg) errorMsg.style.display = 'block';
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
