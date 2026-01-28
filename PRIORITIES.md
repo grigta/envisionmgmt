@@ -49,10 +49,11 @@
 - SEO was already complete (meta, JSON-LD)
 - Added Web3Forms integration for contact form
 
-### 5. [Attention.dev] Portfolio + Contact Form
-- **Impact**: Important | **Effort**: Easy
-- **Score**: 70
+### ~~5. [Attention.dev] Portfolio + Contact Form~~ ✅
+- **Status**: DONE (2026-01-28)
 - **Path**: `attention.dev/`
+- Portfolio was already present (6 projects)
+- Added Web3Forms integration for contact form
 
 ---
 
@@ -63,6 +64,7 @@
 - [x] Chat Widget — Dark/Light theme + Mobile responsive + Bundle (2026-01-28)
 - [x] OmniSupport Landing Page (2026-01-28)
 - [x] Attention.ai — SEO + Contact Form (2026-01-28)
+- [x] Attention.dev — Portfolio + Contact Form (2026-01-28)
 
 ---
 
