@@ -18,15 +18,9 @@
 
 ## 🔥 Critical (делать первым)
 
-### 1. [OmniSupport] Добавить Claude/OpenAI в LLM service
-- **Impact**: Critical | **Effort**: Easy
-- **Score**: 100
-- **Path**: `products/omnisupport/backend/services/ai/llm/`
-- **Tasks**:
-  - [ ] Создать `anthropic.py` для Claude API
-  - [ ] Создать `openai.py` для GPT-4
-  - [ ] Обновить `service.py` с новыми провайдерами
-  - [ ] Добавить env переменные
+### ~~1. [OmniSupport] Добавить Claude/OpenAI в LLM service~~ ✅
+- **Status**: DONE (2026-01-28)
+- **Commit**: `feat(omnisupport): add Claude and OpenAI LLM providers`
 
 ### 2. [OmniSupport] Chat Widget — финализация
 - **Impact**: Critical | **Effort**: Medium  

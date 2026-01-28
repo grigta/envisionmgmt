@@ -55,4 +55,33 @@
 
 ---
 
+---
+
+### Dev Mode — Claude/OpenAI Integration
+
+**Time**: 02:55 UTC
+**Task**: Добавить Claude/OpenAI в LLM service
+**Status**: ✅ Completed
+
+#### Actions:
+1. Created `anthropic.py` — Claude API provider
+2. Created `openai.py` — OpenAI GPT provider
+3. Updated `service.py` — added auto-selection logic
+4. Updated `config.py` — added env variables
+5. Committed and pushed
+
+#### Files changed:
+- `products/omnisupport/backend/services/ai/llm/anthropic.py` (new)
+- `products/omnisupport/backend/services/ai/llm/openai.py` (new)
+- `products/omnisupport/backend/services/ai/llm/service.py` (modified)
+- `products/omnisupport/backend/shared/config.py` (modified)
+
+#### Providers now supported:
+1. **Anthropic Claude** (claude-3-sonnet, claude-4-sonnet)
+2. **OpenAI GPT** (gpt-4o, gpt-4o-mini)
+3. YandexGPT
+4. GigaChat
+
+---
+
 *Log continues below as agent works...*
