@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniSupport — AI-чат для поддержки клиентов</title>
+    <meta name="description" content="Умный чат-виджет с AI для автоматизации клиентской поддержки. Установка за 2 минуты. Бесплатный тариф.">
+    <meta name="keywords" content="чат для сайта, поддержка клиентов, AI чат-бот, виджет поддержки, омниканальность">
+    <meta name="theme-color" content="#0369a1">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="OmniSupport — AI-чат для поддержки клиентов">
+    <meta property="og:description" content="Умный чат-виджет с AI для автоматизации клиентской поддержки">
+    <meta property="og:url" content="https://omnisupport.attention.dev">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #0369a1;
+            --primary-hover: #0284c7;
+            --primary-light: #e0f2fe;
+            --bg: #ffffff;
+            --bg-alt: #f8fafc;
+            --text: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #22c55e;
+            --gradient: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--gradient);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover { color: var(--text); }
+        
+        .nav-cta {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 14px rgba(3, 105, 161, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(3, 105, 161, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-alt);
+            border-color: var(--primary);
+        }
+        
+        .btn-lg {
+            padding: 16px 32px;
+            font-size: 16px;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 20%, var(--primary-light) 0%, transparent 40%);
+            opacity: 0.5;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .hero-badge::before {
+            content: '🚀';
+        }
+        
+        h1 {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-demo {
+            margin-top: 60px;
+            position: relative;
+        }
+        
+        .hero-demo-img {
+            max-width: 900px;
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--border);
+        }
+        
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-label {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        
+        .feature-card {
+            padding: 32px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(3, 105, 161, 0.1);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 100px 0;
+            background: var(--bg-alt);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 900px) {
+            .pricing-grid { grid-template-columns: 1fr; max-width: 400px; }
+        }
+        
+        .pricing-card {
+            padding: 40px 32px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(3, 105, 161, 0.15);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.popular .pricing-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-card h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 20px 0;
+        }
+        
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .pricing-card .btn {
+            width: 100%;
+            margin-top: 16px;
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .cta-box {
+            background: var(--gradient);
+            border-radius: 24px;
+            padding: 80px 40px;
+            color: white;
+        }
+        
+        .cta h2 {
+            color: white;
+            margin-bottom: 16px;
+        }
+        
+        .cta p {
+            opacity: 0.9;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            font-size: 18px;
+        }
+        
+        .cta .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn-primary:hover {
+            background: #f0f9ff;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text);
+        }
+        
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        /* Mobile nav */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero { padding: 120px 0 60px; }
+            h1 { font-size: 36px; }
+            .hero-subtitle { font-size: 16px; }
+            .pricing-card.popular { transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">💬</div>
+                OmniSupport
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">Возможности</a>
+                <a href="#pricing">Тарифы</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            
+            <div class="nav-cta">
+                <a href="#" class="btn btn-secondary">Войти</a>
+                <a href="#" class="btn btn-primary">Попробовать бесплатно</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">Новинка: Интеграция с Claude & GPT</div>
+            
+            <h1>
+                Умный чат для<br>
+                <span>поддержки клиентов</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                AI-powered виджет, который автоматически отвечает на вопросы клиентов 24/7.
+                Установка за 2 минуты, бесплатный тариф навсегда.
+            </p>
+            
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary btn-lg">
+                    🚀 Начать бесплатно
+                </a>
+                <a href="#" class="btn btn-secondary btn-lg">
+                    📺 Смотреть демо
+                </a>
+            </div>
+            
+            <div class="hero-demo">
+                <img src="https://placehold.co/900x500/f1f5f9/64748b?text=Widget+Demo" alt="OmniSupport Demo" class="hero-demo-img">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Возможности</span>
+                <h2>Всё что нужно для поддержки</h2>
+                <p class="section-subtitle">
+                    От простого чата до полноценной AI-поддержки — всё в одном виджете
+                </p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI-ответы 24/7</h3>
+                    <p>Бот на базе Claude/GPT отвечает на типовые вопросы мгновенно, даже когда операторы спят</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>База знаний</h3>
+                    <p>Загрузите FAQ и документацию — AI будет использовать их для точных ответов</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Кастомизация</h3>
+                    <p>Настройте цвета, позицию и тему под ваш бренд. Тёмная тема из коробки</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Мобильный</h3>
+                    <p>Адаптивный дизайн для любых устройств. На телефоне открывается на весь экран</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Быстрая установка</h3>
+                    <p>Одна строка кода — и виджет на вашем сайте. Работает с любой CMS</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Аналитика</h3>
+                    <p>Узнайте что спрашивают клиенты, какие вопросы решает AI, а какие — операторы</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Тарифы</span>
+                <h2>Простые и честные цены</h2>
+                <p class="section-subtitle">
+                    Начните бесплатно, масштабируйтесь по мере роста
+                </p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Бесплатный</h3>
+                    <p style="color: var(--text-muted)">Для начала работы</p>
+                    <div class="price">$0<span>/мес</span></div>
+                    <ul class="pricing-features">
+                        <li>100 сообщений/мес</li>
+                        <li>1 оператор</li>
+                        <li>Базовая кастомизация</li>
+                        <li>Email-уведомления</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Начать бесплатно</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <span class="pricing-badge">Популярный</span>
+                    <h3>Про</h3>
+                    <p style="color: var(--text-muted)">Для растущего бизнеса</p>
+                    <div class="price">$29<span>/мес</span></div>
+                    <ul class="pricing-features">
+                        <li>5,000 сообщений/мес</li>
+                        <li>До 5 операторов</li>
+                        <li>AI-ответы (Claude/GPT)</li>
+                        <li>База знаний</li>
+                        <li>Аналитика</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Попробовать 14 дней</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Бизнес</h3>
+                    <p style="color: var(--text-muted)">Для крупных команд</p>
+                    <div class="price">$99<span>/мес</span></div>
+                    <ul class="pricing-features">
+                        <li>Безлимитные сообщения</li>
+                        <li>Безлимит операторов</li>
+                        <li>Приоритетная поддержка</li>
+                        <li>API доступ</li>
+                        <li>White-label</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Связаться с нами</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Готовы улучшить поддержку?</h2>
+                <p>
+                    Присоединяйтесь к сотням компаний, которые уже автоматизировали 
+                    80% обращений с помощью OmniSupport
+                </p>
+                <a href="#" class="btn btn-primary btn-lg">
+                    🚀 Начать бесплатно — без карты
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">💬</div>
+                OmniSupport
+            </a>
+            
+            <div class="footer-links">
+                <a href="#">Документация</a>
+                <a href="#">Блог</a>
+                <a href="#">Статус</a>
+                <a href="#">Политика конфиденциальности</a>
+            </div>
+            
+            <p class="footer-copy">
+                © 2026 OmniSupport. Продукт <a href="https://attention.dev" style="color: var(--primary)">Attention.dev</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
