@@ -1,0 +1,52 @@
+# Agent Configuration
+# Envision MGMT - AI Product Development Agent
+
+agent:
+  name: "Clawd"
+  version: "1.0.0"
+
+cycles:
+  ceo_mode:
+    trigger: "daily"  # или "after_dev_sprint", "manual"
+    hours_between: 24
+    
+  dev_mode:
+    trigger: "continuous"  # пока есть задачи
+    max_hours_per_task: 2
+    break_between_tasks: 5  # минут
+
+projects:
+  - name: "OmniSupport"
+    path: "products/omnisupport"
+    priority: 1
+    goal: "MVP launch"
+    
+  - name: "Attention.ai"
+    path: "attention.ai"
+    priority: 2
+    goal: "Landing + SEO"
+    
+  - name: "Attention.dev"
+    path: "attention.dev"
+    priority: 3
+    goal: "Landing + Portfolio"
+
+notifications:
+  telegram: true
+  critical_only: false
+  
+human_approval_required:
+  - "pivot"
+  - "delete_feature"
+  - "launch"
+  - "pricing_change"
+
+priorities:
+  matrix:
+    # impact × effort = score
+    critical_easy: 100
+    critical_hard: 80
+    important_easy: 70
+    important_hard: 50
+    nice_easy: 30
+    nice_hard: 10

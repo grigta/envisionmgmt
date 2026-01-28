@@ -1,0 +1,24 @@
+{
+  "current_mode": "ceo",
+  "last_ceo_run": null,
+  "last_dev_run": null,
+  "current_sprint": null,
+  "tasks_completed_today": 0,
+  "projects": {
+    "omnisupport": {
+      "status": "in_development",
+      "readiness": 0,
+      "last_analyzed": null
+    },
+    "attention.ai": {
+      "status": "landing_ready",
+      "readiness": 60,
+      "last_analyzed": null
+    },
+    "attention.dev": {
+      "status": "landing_ready", 
+      "readiness": 60,
+      "last_analyzed": null
+    }
+  }
+}
