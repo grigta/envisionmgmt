@@ -34,14 +34,14 @@
 
 ## 🟡 Important (после critical)
 
-### 3. [OmniSupport] Landing Page
-- **Impact**: Important | **Effort**: Medium
-- **Score**: 50
-- **Tasks**:
-  - [ ] Hero section
-  - [ ] Features
-  - [ ] Pricing
-  - [ ] CTA
+### ~~3. [OmniSupport] Landing Page~~ ✅
+- **Status**: DONE (2026-01-28)
+- **Path**: `products/omnisupport/landing/index.html`
+- **Completed**:
+  - [x] Hero section
+  - [x] Features (6 cards)
+  - [x] Pricing (3 tiers)
+  - [x] CTA + Footer
 
 ### 4. [Attention.ai] SEO + Contact Form
 - **Impact**: Important | **Effort**: Easy
@@ -60,6 +60,7 @@
 - [x] README.md для OmniSupport (2026-01-28)
 - [x] CEO Analysis — оценка реального состояния (2026-01-28)
 - [x] Chat Widget — Dark/Light theme + Mobile responsive + Bundle (2026-01-28)
+- [x] OmniSupport Landing Page (2026-01-28)
 
 ---
 
