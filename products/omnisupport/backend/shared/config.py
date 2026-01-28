@@ -54,6 +54,8 @@ class Settings(BaseSettings):
         return v
 
     # LLM Providers
+    anthropic_api_key: str | None = None
+    openai_api_key: str | None = None
     yandex_gpt_api_key: str | None = None
     yandex_gpt_folder_id: str | None = None
     gigachat_client_id: str | None = None

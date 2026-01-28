@@ -1,72 +1,72 @@
 # 🎯 PRIORITIES — Current Sprint
 
-*Что делать прямо сейчас*
 *Обновлено: 2026-01-28 by Clawd (CEO Mode)*
+
+---
+
+## 📊 Реальное состояние
+
+### OmniSupport Backend: **80% Ready** ✅
+Уже есть:
+- REST API (auth, conversations, ai, billing, channels, webhooks...)
+- WebSocket real-time
+- AI интеграция (YandexGPT, GigaChat)
+- RAG/Knowledge base
+- Multi-tenant, JWT auth, 2FA
 
 ---
 
 ## 🔥 Critical (делать первым)
 
-### 1. [OmniSupport] Завершить Backend API
-- **Impact**: Critical | **Effort**: Medium
-- **Score**: 80
-- **Path**: `products/omnisupport/backend/`
+### 1. [OmniSupport] Добавить Claude/OpenAI в LLM service
+- **Impact**: Critical | **Effort**: Easy
+- **Score**: 100
+- **Path**: `products/omnisupport/backend/services/ai/llm/`
 - **Tasks**:
-  - [ ] REST API для чатов
-  - [ ] WebSocket для real-time
-  - [ ] Интеграция Claude API
-  - [ ] Аутентификация (API keys)
+  - [ ] Создать `anthropic.py` для Claude API
+  - [ ] Создать `openai.py` для GPT-4
+  - [ ] Обновить `service.py` с новыми провайдерами
+  - [ ] Добавить env переменные
 
-### 2. [OmniSupport] Доделать Chat Widget
+### 2. [OmniSupport] Chat Widget — финализация
 - **Impact**: Critical | **Effort**: Medium  
 - **Score**: 80
 - **Path**: `products/omnisupport/widget/`
 - **Tasks**:
-  - [ ] Стили (light/dark theme)
-  - [ ] Анимации появления
+  - [ ] Dark/Light theme
   - [ ] Mobile responsive
-  - [ ] Embed script
+  - [ ] Минифицированный bundle
 
 ---
 
 ## 🟡 Important (после critical)
 
-### 3. [OmniSupport] Admin Dashboard
-- **Impact**: Important | **Effort**: Hard
+### 3. [OmniSupport] Landing Page
+- **Impact**: Important | **Effort**: Medium
 - **Score**: 50
-- **Path**: `products/omnisupport/frontend/`
 - **Tasks**:
-  - [ ] Список чатов
-  - [ ] Настройки виджета
-  - [ ] Аналитика
+  - [ ] Hero section
+  - [ ] Features
+  - [ ] Pricing
+  - [ ] CTA
 
-### 4. [Attention.ai] SEO оптимизация
+### 4. [Attention.ai] SEO + Contact Form
 - **Impact**: Important | **Effort**: Easy
 - **Score**: 70
 - **Path**: `attention.ai/`
-- **Tasks**:
-  - [ ] Meta description
-  - [ ] Open Graph tags
-  - [ ] Structured data
 
----
-
-## 🟢 Nice to have (если есть время)
-
-### 5. [Attention.dev] Portfolio section
-- **Impact**: Nice | **Effort**: Medium
-- **Score**: 30
-
-### 6. [All] CI/CD pipelines
-- **Impact**: Nice | **Effort**: Medium
-- **Score**: 30
+### 5. [Attention.dev] Portfolio + Contact Form
+- **Impact**: Important | **Effort**: Easy
+- **Score**: 70
+- **Path**: `attention.dev/`
 
 ---
 
 ## ✅ Completed this sprint
 
 - [x] README.md для OmniSupport (2026-01-28)
+- [x] CEO Analysis — оценка реального состояния (2026-01-28)
 
 ---
 
-*Следующий CEO Mode анализ: через 24 часа*
+*Следующий CEO Mode: через 24 часа*

@@ -6,6 +6,8 @@ from shared.config import get_settings
 from services.ai.llm.base import BaseLLM, LLMMessage, LLMResponse, LLMRole
 from services.ai.llm.yandexgpt import YandexGPTLLM
 from services.ai.llm.gigachat import GigaChatLLM
+from services.ai.llm.anthropic import AnthropicLLM
+from services.ai.llm.openai import OpenAILLM
 
 logger = logging.getLogger(__name__)
 settings = get_settings()
@@ -41,8 +43,26 @@ class LLMService:
                 logger.info("Using GigaChat LLM")
                 return self._provider
 
-        # Auto-select: try YandexGPT first, then GigaChat
-        if settings.yandex_gpt_api_key and settings.yandex_gpt_folder_id:
+        if self.preferred_provider == "anthropic" or self.preferred_provider == "claude":
+            if settings.anthropic_api_key:
+                self._provider = AnthropicLLM()
+                logger.info("Using Anthropic Claude LLM")
+                return self._provider
+
+        if self.preferred_provider == "openai" or self.preferred_provider == "gpt":
+            if settings.openai_api_key:
+                self._provider = OpenAILLM()
+                logger.info("Using OpenAI GPT LLM")
+                return self._provider
+
+        # Auto-select: try Claude first, then OpenAI, then YandexGPT, then GigaChat
+        if settings.anthropic_api_key:
+            self._provider = AnthropicLLM()
+            logger.info("Using Anthropic Claude LLM (auto-selected)")
+        elif settings.openai_api_key:
+            self._provider = OpenAILLM()
+            logger.info("Using OpenAI GPT LLM (auto-selected)")
+        elif settings.yandex_gpt_api_key and settings.yandex_gpt_folder_id:
             self._provider = YandexGPTLLM()
             logger.info("Using YandexGPT LLM (auto-selected)")
         elif settings.gigachat_client_id and settings.gigachat_client_secret:
