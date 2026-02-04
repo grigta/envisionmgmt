@@ -55,14 +55,15 @@
 
 ## 🟡 Important (после critical)
 
-### 4. [OmniSupport] API Documentation
-- **Status**: 🔴 TODO
+### ~~4. [OmniSupport] API Documentation~~ ✅
+- **Status**: DONE (2026-02-03)
 - **Path**: `products/omnisupport/docs/API.md`
-- **Tasks**:
-  - [ ] Authentication
-  - [ ] Endpoints reference
-  - [ ] WebSocket events
-  - [ ] Code examples (curl, JS, Python)
+- **Completed**:
+  - [x] Authentication (register, login, 2FA)
+  - [x] 16 endpoint categories documented
+  - [x] WebSocket events
+  - [x] Code examples (curl, JS, Python)
+  - [x] Widget API
 
 ### 5. [OmniSupport] Integration Examples
 - **Status**: 🔴 TODO
