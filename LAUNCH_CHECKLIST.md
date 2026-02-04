@@ -1,55 +1,56 @@
 # 🚀 LAUNCH CHECKLIST — OmniSupport
 
 *Критерии готовности к запуску MVP*
+*Обновлено: 2026-02-03 by Clawd*
 
 ---
 
 ## 📦 Product
 
-- [ ] Core Features
-  - [ ] Chat widget встраивается одной строкой
-  - [ ] AI отвечает на вопросы
-  - [ ] История чатов сохраняется
-  - [ ] Работает на mobile
+- [x] Core Features
+  - [x] Chat widget встраивается одной строкой
+  - [x] AI отвечает на вопросы (Claude, OpenAI, YandexGPT, GigaChat)
+  - [x] История чатов сохраняется
+  - [x] Работает на mobile
 
 - [ ] Quality
   - [ ] Нет critical багов
   - [ ] Время ответа < 3 сек
   - [ ] Uptime > 99%
 
-- [ ] UX
-  - [ ] Widget не мешает сайту
-  - [ ] Понятно как закрыть чат
-  - [ ] Есть индикатор "печатает..."
+- [x] UX
+  - [x] Widget не мешает сайту
+  - [x] Понятно как закрыть чат
+  - [x] Есть индикатор "печатает..."
 
 ---
 
 ## 📚 Documentation
 
 - [x] README понятен новому пользователю
-- [ ] Quick Start Guide (5 минут до первого чата)
-- [ ] API документация
-- [ ] Примеры интеграции (HTML, React, Vue)
+- [x] Quick Start Guide (5 минут до первого чата)
+- [x] API документация (16 разделов, примеры)
+- [x] Примеры интеграции (HTML, React, Vue, Next.js)
 - [ ] FAQ
 
 ---
 
 ## 💼 Business
 
-- [ ] Landing Page
-  - [ ] Понятный value proposition
-  - [ ] Pricing таблица
-  - [ ] CTA "Попробовать бесплатно"
+- [x] Landing Page
+  - [x] Понятный value proposition
+  - [x] Pricing таблица
+  - [x] CTA "Попробовать бесплатно"
   
-- [ ] Pricing определён
-  - [ ] Free tier (100 сообщений/мес)
-  - [ ] Pro tier ($29/мес)
-  - [ ] Enterprise (custom)
+- [x] Pricing определён
+  - [x] Free tier (100 сообщений/мес)
+  - [x] Pro tier ($29/мес)
+  - [x] Enterprise (custom)
 
-- [ ] Legal
-  - [ ] Terms of Service
-  - [ ] Privacy Policy
-  - [ ] GDPR compliance
+- [x] Legal
+  - [x] Terms of Service
+  - [x] Privacy Policy
+  - [x] GDPR compliance
 
 ---
 
@@ -65,10 +66,10 @@
   - [ ] Мониторинг (uptime, errors)
   - [ ] Алерты в Telegram
 
-- [ ] Security
-  - [ ] API keys не в коде
-  - [ ] Rate limiting
-  - [ ] Input validation
+- [x] Security
+  - [x] API keys не в коде (.env)
+  - [x] Rate limiting
+  - [x] Input validation
 
 - [ ] Backup
   - [ ] DB backup автоматический
@@ -80,16 +81,33 @@
 
 | Category | Weight | Score | Weighted |
 |----------|--------|-------|----------|
-| Product | 40% | 30% | 12% |
-| Docs | 15% | 20% | 3% |
-| Business | 25% | 10% | 2.5% |
-| Technical | 20% | 20% | 4% |
-| **TOTAL** | 100% | — | **21.5%** |
+| Product | 40% | 75% | 30% |
+| Docs | 15% | 90% | 13.5% |
+| Business | 25% | 100% | 25% |
+| Technical | 20% | 35% | 7% |
+| **TOTAL** | 100% | — | **75.5%** |
 
-**Status**: 🔴 Not ready for launch
+**Status**: 🟡 Almost ready — need infrastructure
 
-**Estimated time to launch**: 3-4 weeks
+**Blockers for launch**:
+1. 🔴 Production сервер (deploy backend + widget)
+2. 🔴 SSL + домен
+3. 🟡 Quality testing
+4. 🟡 Backup setup
+
+**Estimated time to launch**: 1 week (with infra)
 
 ---
 
-*Last updated: 2026-01-28 by Clawd*
+## 🎯 Next Steps
+
+1. **Deploy backend** to VPS/Cloud (Yandex Cloud, DigitalOcean)
+2. **Setup domain** omnisupport.attention.dev
+3. **Configure SSL** (Let's Encrypt)
+4. **CDN for widget.js** (Cloudflare)
+5. **Smoke test** all flows
+6. **Soft launch** to 3-5 beta users
+
+---
+
+*Last updated: 2026-02-03 by Clawd*
