@@ -1,71 +1,90 @@
 # 🎯 PRIORITIES — Current Sprint
 
-*Обновлено: 2026-01-28 by Clawd (CEO Mode)*
+*Обновлено: 2026-02-03 by Clawd (Dev Mode)*
 
 ---
 
 ## 📊 Реальное состояние
 
-### OmniSupport Backend: **80% Ready** ✅
-Уже есть:
-- REST API (auth, conversations, ai, billing, channels, webhooks...)
-- WebSocket real-time
-- AI интеграция (YandexGPT, GigaChat)
-- RAG/Knowledge base
-- Multi-tenant, JWT auth, 2FA
+### OmniSupport: **~50% to Launch**
+✅ Готово:
+- Backend API 80% (auth, conversations, ai, billing, channels, webhooks)
+- Chat Widget (dark/light, mobile, 79KB bundle)
+- AI интеграция (Claude, OpenAI, YandexGPT, GigaChat)
+- Landing Page (hero, features, pricing, CTA)
+
+🔴 Нужно для запуска:
+- Документация (Quick Start, API docs, примеры)
+- Legal (Terms of Service, Privacy Policy)
+- Admin Dashboard
 
 ---
 
 ## 🔥 Critical (делать первым)
 
-### ~~1. [OmniSupport] Добавить Claude/OpenAI в LLM service~~ ✅
-- **Status**: DONE (2026-01-28)
-- **Commit**: `feat(omnisupport): add Claude and OpenAI LLM providers`
-
-### ~~2. [OmniSupport] Chat Widget — финализация~~ ✅
-- **Status**: DONE (2026-01-28)
-- **Path**: `products/omnisupport/widget/`
+### ~~1. [OmniSupport] Quick Start Guide~~ ✅
+- **Status**: DONE (2026-02-03)
+- **Path**: `products/omnisupport/docs/QUICKSTART.md`
 - **Completed**:
-  - [x] Dark/Light theme
-  - [x] Mobile responsive  
-  - [x] Минифицированный bundle (79KB gzipped)
+  - [x] Установка widget (copy-paste snippet)
+  - [x] Получение API ключа
+  - [x] Первый тестовый чат
+  - [x] Базовая настройка AI
+  - [x] Примеры для React, Vue, Next.js
+
+### ~~2. [OmniSupport] Terms of Service~~ ✅
+- **Status**: DONE (2026-02-03)
+- **Path**: `products/omnisupport/legal/terms.md`
+- **Completed**:
+  - [x] Условия использования
+  - [x] Ограничение ответственности
+  - [x] Правила допустимого использования
+  - [x] Тарифы и оплата
+
+### ~~3. [OmniSupport] Privacy Policy~~ ✅
+- **Status**: DONE (2026-02-03)
+- **Path**: `products/omnisupport/legal/privacy.md`
+- **Completed**:
+  - [x] Какие данные собираем
+  - [x] Как используем
+  - [x] GDPR compliance
+  - [x] Права пользователей
+  - [x] Cookie policy
 
 ---
 
 ## 🟡 Important (после critical)
 
-### ~~3. [OmniSupport] Landing Page~~ ✅
-- **Status**: DONE (2026-01-28)
-- **Path**: `products/omnisupport/landing/index.html`
-- **Completed**:
-  - [x] Hero section
-  - [x] Features (6 cards)
-  - [x] Pricing (3 tiers)
-  - [x] CTA + Footer
+### 4. [OmniSupport] API Documentation
+- **Status**: 🔴 TODO
+- **Path**: `products/omnisupport/docs/API.md`
+- **Tasks**:
+  - [ ] Authentication
+  - [ ] Endpoints reference
+  - [ ] WebSocket events
+  - [ ] Code examples (curl, JS, Python)
 
-### ~~4. [Attention.ai] SEO + Contact Form~~ ✅
-- **Status**: DONE (2026-01-28)
-- **Path**: `attention.ai/`
-- SEO was already complete (meta, JSON-LD)
-- Added Web3Forms integration for contact form
-
-### ~~5. [Attention.dev] Portfolio + Contact Form~~ ✅
-- **Status**: DONE (2026-01-28)
-- **Path**: `attention.dev/`
-- Portfolio was already present (6 projects)
-- Added Web3Forms integration for contact form
+### 5. [OmniSupport] Integration Examples
+- **Status**: 🔴 TODO
+- **Path**: `products/omnisupport/docs/examples/`
+- **Tasks**:
+  - [ ] Plain HTML
+  - [ ] React component
+  - [ ] Vue component
+  - [ ] Next.js
 
 ---
 
-## ✅ Completed this sprint
+## ✅ Completed (previous sprint)
 
-- [x] README.md для OmniSupport (2026-01-28)
-- [x] CEO Analysis — оценка реального состояния (2026-01-28)
-- [x] Chat Widget — Dark/Light theme + Mobile responsive + Bundle (2026-01-28)
-- [x] OmniSupport Landing Page (2026-01-28)
-- [x] Attention.ai — SEO + Contact Form (2026-01-28)
-- [x] Attention.dev — Portfolio + Contact Form (2026-01-28)
+- [x] README.md для OmniSupport
+- [x] Claude/OpenAI LLM providers
+- [x] Chat Widget (themes + mobile + bundle)
+- [x] OmniSupport Landing Page
+- [x] Attention.ai — SEO + Contact Form
+- [x] Attention.dev — Portfolio + Contact Form
+- [x] ROADMAP.md актуализация (2026-02-03)
 
 ---
 
-*Следующий CEO Mode: через 24 часа*
+*Текущий фокус: Документация и Legal — разблокируют запуск*
