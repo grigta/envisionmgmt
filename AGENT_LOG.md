@@ -31,9 +31,24 @@
 `docs(omnisupport): add Quick Start Guide, Terms of Service, and Privacy Policy`
 
 #### Следующие задачи:
-- [ ] API Documentation
-- [ ] Integration Examples (отдельные файлы для React/Vue/Next)
+- [x] API Documentation ✅
+- [x] Integration Examples ✅
 - [ ] FAQ
+- [ ] Admin Dashboard
+
+#### Дополнительно в этой сессии:
+
+**API Documentation** (13KB)
+- 16 endpoint категорий
+- WebSocket events
+- Widget API
+- Примеры curl, JS, Python
+
+**Integration Examples**:
+- `react.md` — Provider, hooks, TypeScript
+- `vue.md` — Plugin, composables, Nuxt 3
+- `nextjs.md` — App Router + Pages Router
+- `html.md` — Vanilla JS, WordPress, Shopify
 
 ---
 
