@@ -65,14 +65,14 @@
   - [x] Code examples (curl, JS, Python)
   - [x] Widget API
 
-### 5. [OmniSupport] Integration Examples
-- **Status**: 🔴 TODO
+### ~~5. [OmniSupport] Integration Examples~~ ✅
+- **Status**: DONE (2026-02-03)
 - **Path**: `products/omnisupport/docs/examples/`
-- **Tasks**:
-  - [ ] Plain HTML
-  - [ ] React component
-  - [ ] Vue component
-  - [ ] Next.js
+- **Completed**:
+  - [x] Plain HTML (+ WordPress, Shopify)
+  - [x] React (hooks, TypeScript)
+  - [x] Vue 3 (composables, Nuxt 3)
+  - [x] Next.js (App Router + Pages Router)
 
 ---
 
